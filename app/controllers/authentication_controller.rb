@@ -1,5 +1,6 @@
 class AuthenticationController < ApplicationController
     
+
     def login
         @user = User.find_by(username: params[:username])
 
@@ -15,11 +16,11 @@ class AuthenticationController < ApplicationController
 
                 render json: { token: token }
             else
-                render json: "incorrect username or password"
+                render json: "incorrect username or password", status: :unauthorized
             end
 
         else
-            render json: "incorrect username or password!"
+            render json: "incorrect username or password!", status: :unauthorized
         end
     end
 
