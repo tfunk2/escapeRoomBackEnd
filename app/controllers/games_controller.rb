@@ -15,7 +15,7 @@ class GamesController < ApplicationController
     private
 
     def game_params
-        params.require(:game).permit(:user, :seconds_to_complete, :total_misses)
+        params.require(:game).permit(:user_id, :seconds_to_complete, :total_misses)
     end
 
 end
